@@ -1,10 +1,17 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
+import { createRoot } from "react-dom/client";
+
 import "./index.css";
-import Start from "./assets/tutorial/01-useState/final/03-useState-array.jsx";
-ReactDOM.createRoot(document.getElementById("root")).render(
+import App from "./App";
+import { store } from "./Store";
+import { Provider } from "react-redux";
+const container = document.getElementById("root");
+const root = createRoot(container);
+
+root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
